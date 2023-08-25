@@ -24,9 +24,8 @@ export default function Forgot(props) {
   //   submit handler
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(forgotForm);
     await axios
-      .post("http://localhost:8888/auth/forgot-password", forgotForm)
+      .post("http://localhost:8000/auth/forgot-password", forgotForm)
       .then((response) => {
         toast.success(response.data.detail)
         setTimeout(()=>{
@@ -53,7 +52,7 @@ export default function Forgot(props) {
           <input
             type="email"
             placeholder="Email"
-            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-black-400"
             onChange={(event) => {
               onChangeForm("email", event);
             }}
@@ -61,7 +60,7 @@ export default function Forgot(props) {
           <input
             type="password"
             placeholder="New Password"
-            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-black-400"
             onChange={(event) => {
               onChangeForm("new_password", event);
             }}
@@ -70,7 +69,7 @@ export default function Forgot(props) {
         <div className="text-center mt-6">
           <button
             type="submit"
-            className="py-3 w-64 text-xl text-white bg-yellow-400 rounded-2xl hover:bg-yellow-300 active:bg-yellow-500 outline-none"
+            className="py-3 w-64 text-xl text-black bg-black-400 rounded-2xl hover:bg-black-300 active:bg-black-500 outline-none"
           >
             Update Password
           </button>

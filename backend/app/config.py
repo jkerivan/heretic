@@ -5,7 +5,7 @@ from sqlmodel import SQLModel
 DB_CONFIG = f"postgresql+asyncpg://postgres:postgres@localhost:5432/test"
 
 
-SECRET_KEY = "lemoncode21"
+SECRET_KEY = "heretic123"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

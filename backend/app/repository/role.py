@@ -16,7 +16,7 @@ class RoleRepository(BaseRepo):
 
     @staticmethod
     async def find_by_list_role_name(role_name:List[str]):
-        query =  select(Role).where(Role.role_name.in_(role_name))
+        query = select(Role).where(Role.role_name.in_(role_name))
         return (await db.execute(query)).scalars().all()
 
     @staticmethod

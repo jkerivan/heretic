@@ -2,7 +2,7 @@
 name = "app"
 version = "0.1.0"
 description = ""
-authors = ["lemoncode21 <lemoncode21p@gmail.com>"]
+authors = ["jameskerivan <jameskerivan@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -17,6 +17,7 @@ pydantic = "^1.10.2"
 alembic = "^1.8.1"
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-multipart = "^0.0.6"
 
 
 [build-system]

@@ -23,22 +23,20 @@ export default function Login(props) {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(loginForm);
     // call api login
     await axios
-      .post("http://localhost:8888/auth/login", loginForm)
+      .post("http://localhost:8000/auth/login", loginForm)
       .then((response) => {
-        console.log(response);
-        // Save token to local storage
+
         localStorage.setItem("auth_token", response.data.result.access_token);
         localStorage.setItem(
           "auth_token_type",
           response.data.result.token_type
         );
 
-        // add successfully notif
+
         toast.success(response.data.detail);
-        // reload page after success login
+
         setTimeout(() => {
           window.location.reload();
         }, 1000);
@@ -55,7 +53,7 @@ export default function Login(props) {
     <React.Fragment>
       <div>
         <h1 className="text-3xl font-bold text-center mb-4 cursor-pointer">
-          Welcome to lemoncode21
+          Uncle Bills Surf Shop
         </h1>
         <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer mx-auto">
           Please login to your account!
@@ -66,7 +64,7 @@ export default function Login(props) {
           <input
             type="text"
             placeholder="Username"
-            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-black-400"
             onChange={(event) => {
               onChangeForm("username", event);
             }}
@@ -74,7 +72,7 @@ export default function Login(props) {
           <input
             type="password"
             placeholder="Password"
-            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-black-400"
             onChange={(event) => {
               onChangeForm("password", event);
             }}
@@ -83,7 +81,7 @@ export default function Login(props) {
         <div className="text-center mt-6">
           <button
             type="submit"
-            className="py-3 w-64 text-xl text-white bg-yellow-400 rounded-2xl hover:bg-yellow-300 active:bg-yellow-500 outline-none"
+            className="py-3 w-64 text-xl text-black bg-wh-400 rounded-2xl hover:bg-black-300 active:bg-black-500 outline-none"
           >
             Sign In
           </button>
