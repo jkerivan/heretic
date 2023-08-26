@@ -1,0 +1,32 @@
+version: "3"
+services:
+  backend:
+    image: fastapi-backend:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    networks:
+      - my-network
+  frontend:
+    image: frontend-react:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8000  # Point to your backend service
+    links:
+      - backend
+    networks:
+      - my-network
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - my-network
+
+
+networks:
+  my-network:

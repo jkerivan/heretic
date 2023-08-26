@@ -98,3 +98,20 @@ async def generate_roles():
     if not _role:
         await RoleRepository.create_list(
             [Role(id=str(uuid4()), role_name="admin"), Role(id=str(uuid4()), role_name="vendor")])
+        
+    _vendor_id = str(uuid4())
+    _users_id = str(uuid4())
+    _vendor = Vendor(id=_vendor_id, name="admin")
+
+    _users = Users(id=_users_id, username='admin', email='admin@gmail.com',
+                       password=pwd_context.hash('admin'),
+                       vendor_id=_vendor_id)
+
+    _role = await RoleRepository.find_by_role_name("vendor")
+    _role1 = await RoleRepository.find_by_role_name("admin")
+    _users_role = UsersRole(users_id=_users.id, role_id=_role.id)
+    _users_role1 = UsersRole(users_id=_users.id, role_id=_role1.id)
+    await VendorRepository.create(**_vendor.dict())
+    await UsersRepository.create(**_users.dict())
+    await UsersRoleRepository.create(**_users_role.dict())
+    await UsersRoleRepository.create(**_users_role1.dict())

@@ -46,7 +46,7 @@ async def create_product(title: str = Form(...),
                          vendor_id: str = Form(...),
                          image: UploadFile = File(...), user_credentials: UserCredentials = Depends(get_current_user)):
 
-    image_path = f"admin/backend/media/{image.filename}"  
+    image_path = f"media/{image.filename}"  
     with open(image_path, "wb") as image_file:
         image_file.write(image.file.read())
 

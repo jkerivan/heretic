@@ -25,7 +25,7 @@ export default function Product({ user, closeModal, onProductCreated }) {
     formData.append("vendor_id", user.vendor_id);
 
     try {
-      const response = await axios.post("http://localhost:8000/products/", formData, {
+      const response = await axios.post("http://0.0.0.0:8000/products/", formData, {
         headers: { Authorization: token },
       });
       onProductCreated(response.data.result);

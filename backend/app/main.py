@@ -5,7 +5,12 @@ from app.config import db
 from app.service.auth_service import generate_roles
 
 origins= [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "localhost:3000",
+    "http://frontend:3000",
+    "frontend:3000",
+    "http://172.22.0.4:3000",
+    "http://0.0.0.0:3000"
 ]
 
 def init_app():
@@ -46,4 +51,4 @@ app = init_app()
 
 def start():
     """Launched with 'poetry run start' at root level """
-    uvicorn.run("app.main:app", host="localhost", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

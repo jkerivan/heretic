@@ -25,7 +25,7 @@ export default function Login(props) {
     event.preventDefault();
     // call api login
     await axios
-      .post("http://localhost:8000/auth/login", loginForm)
+      .post("http://0.0.0.0:8000/auth/login", loginForm)
       .then((response) => {
 
         localStorage.setItem("auth_token", response.data.result.access_token);

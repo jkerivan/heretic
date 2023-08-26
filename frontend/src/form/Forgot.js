@@ -25,7 +25,7 @@ export default function Forgot(props) {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:8000/auth/forgot-password", forgotForm)
+      .post("http://0.0.0.0:8000/auth/forgot-password", forgotForm)
       .then((response) => {
         toast.success(response.data.detail)
         setTimeout(()=>{

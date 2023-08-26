@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import Product from "./form/Product";
 
 export default function Home() {
@@ -35,7 +34,7 @@ export default function Home() {
     const auth_token_type = localStorage.getItem("auth_token_type");
     const token = auth_token_type + " " + auth_token;
     axios
-      .post(`http://localhost:8000/products/${id}/approve`, {}, {
+      .post(`http://0.0.0.0:8000/products/${id}/approve`, {}, {
         headers: { Authorization: token },
       })
       .then((response) => {
@@ -52,7 +51,7 @@ export default function Home() {
     const token = auth_token_type + " " + auth_token;
 
     axios
-      .get("http://localhost:8000/products/", {
+      .get("http://0.0.0.0:8000/products/", {
         headers: { Authorization: token },
       })
       .then((response) => {
@@ -71,7 +70,7 @@ export default function Home() {
 
     //  fetch data from get user api
     axios
-      .get("http://localhost:8000/users/", {
+      .get("http://0.0.0.0:8000/users/", {
         headers: { Authorization: token },
       })
       .then((response) => {

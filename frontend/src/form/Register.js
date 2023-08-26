@@ -41,7 +41,7 @@ export default function Register(props) {
     event.preventDefault();
   
     await axios
-      .post("http://localhost:8000/auth/register", formRegister)
+      .post("http://0.0.0.0:8000/auth/register", formRegister)
       .then((response) => {
         // move to sign in page
         navigate("/?signin");
